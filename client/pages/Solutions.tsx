@@ -348,59 +348,7 @@ export default function Solutions() {
           </div>
         </section>
 
-        {/* Wind Energy Services Section */}
-        <section ref={windRef} className="py-20 bg-accent/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <UnderlineHeader isInView={isWindInView}>
-                Wind Energy Services
-              </UnderlineHeader>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isWindInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-muted-foreground max-w-3xl mx-auto"
-              >
-                End-to-end wind energy services including EPC, hybrid systems,
-                asset management, and technical advisory for lenders and
-                investors.
-              </motion.p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {windServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={
-                    isWindInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
-                  }
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="group"
-                >
-                  <Card className="border-green-100 hover:border-primary/20 transition-all duration-300 hover:shadow-xl h-full bg-white/80 backdrop-blur-sm">
-                    <CardHeader className="text-center">
-                      <DrawOnIcon
-                        Icon={service.icon}
-                        isInView={isWindInView}
-                        delay={0.7 + index * 0.1}
-                      />
-                      <CardTitle className="text-lg font-semibold">
-                        {service.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-center text-muted-foreground">
-                        {service.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+        
 
             {/* CTA Section */}
             <motion.div
