@@ -78,19 +78,21 @@ export default function B2C() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {services.map((s, idx) => (
-                <Card key={idx} className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <s.icon className="h-6 w-6 text-primary" />
+                <motion.div key={idx} initial={{ opacity: 0, y: 40 }} animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.6, delay: idx * 0.08 }} whileHover={{ y: -6, scale: 1.02 }} className="group">
+                  <Card className="h-full">
+                    <CardHeader>
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                          <s.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-lg">{s.title}</CardTitle>
                       </div>
-                      <CardTitle className="text-lg">{s.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground">{s.description}</CardDescription>
-                  </CardContent>
-                </Card>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-muted-foreground">{s.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
