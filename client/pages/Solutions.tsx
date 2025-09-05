@@ -229,7 +229,7 @@ export default function Solutions() {
         {/* Solar Energy Solutions Section */}
         <section ref={solarRef} className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <UnderlineHeader isInView={isSolarInView}>
                 Solar Energy Solutions
               </UnderlineHeader>
@@ -245,6 +245,12 @@ export default function Solutions() {
                 commercial projects, including maintenance, monitoring, and
                 specialized applications.
               </motion.p>
+
+              <div className="mt-6 flex justify-center gap-3">
+                <a href="/get-quote#residential" className="inline-block px-4 py-2 rounded-full bg-primary text-primary-foreground">Residential</a>
+                <a href="/get-quote#housing" className="inline-block px-4 py-2 rounded-full bg-primary/80 text-primary-foreground">Housing Society</a>
+                <a href="/get-quote#commercial" className="inline-block px-4 py-2 rounded-full bg-primary/70 text-primary-foreground">Commercial</a>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
