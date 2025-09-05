@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Wind, Globe, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import BackButton from "@/components/BackButton";
 
 export default function Wind() {
   const heroRef = useRef(null);
@@ -25,6 +26,9 @@ export default function Wind() {
       <main className="pt-16">
         <section ref={heroRef} className="py-24 bg-accent/10">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="w-full flex justify-start mb-6">
+              <BackButton />
+            </div>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.6 }} className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Wind Energy
             </motion.h1>

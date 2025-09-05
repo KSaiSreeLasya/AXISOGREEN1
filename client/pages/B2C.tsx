@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Home, Wrench, Sun, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import BackButton from "@/components/BackButton";
 
 export default function B2C() {
   const heroRef = useRef(null);
@@ -48,6 +49,9 @@ export default function B2C() {
           className="py-20 bg-gradient-to-br from-background via-green-50 to-accent"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="w-full flex justify-start mb-6">
+              <BackButton />
+            </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
