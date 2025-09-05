@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -272,7 +273,47 @@ export default function Solutions() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Business category links */}
+            <div className="max-w-3xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  icon: Building,
+                  title: "B2B — Commercial & Industrial Solar",
+                  description: "End-to-end commercial solar solutions for businesses, campuses, and industrial sites.",
+                  to: "/solutions/b2b",
+                },
+                {
+                  icon: Home,
+                  title: "B2C — Residential Solar Solutions",
+                  description: "Rooftop and small-scale solar systems designed for homeowners and residential complexes.",
+                  to: "/solutions/b2c",
+                },
+                {
+                  icon: Globe,
+                  title: "B2G — Government & Public Projects",
+                  description: "Large-scale public-sector and government solar projects, tenders, and rooftop schemes.",
+                  to: "/solutions/b2g",
+                },
+              ].map((link, idx) => (
+                <Link
+                  key={idx}
+                  to={link.to}
+                  className="block p-6 rounded-xl bg-white border border-green-100 shadow hover:shadow-lg transition"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-green-500/10 rounded-xl flex items-center justify-center">
+                      <link.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{link.title}</h3>
+                      <p className="text-sm text-muted-foreground">{link.description}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               {solarServices.map((service, index) => (
                 <motion.div
                   key={index}
