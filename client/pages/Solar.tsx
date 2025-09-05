@@ -133,20 +133,28 @@ export default function Solar() {
                     { icon: Wrench, title: "Solar Panel Maintenance & Repair", desc: "Comprehensive O&M services" },
                     { icon: Monitor, title: "Solar Energy Audits & Monitoring", desc: "Performance analysis and optimization" },
                   ].map((s, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.6, delay: i * 0.05 }} whileHover={{ scale: 1.02 }} className="group">
-                      <div className="p-6 rounded-lg bg-white shadow h-full">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center">
-                            <s.icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <div>
-                            <div className="font-semibold">{s.title}</div>
-                            <div className="text-muted-foreground text-sm">{s.desc}</div>
-                          </div>
-                        </div>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="group"
+                >
+                  <div className="p-6 rounded-lg bg-white shadow h-full">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center">
+                        <s.icon className="h-6 w-6 text-primary" />
                       </div>
-                    </motion.div>
-                  ))}
+                      <div>
+                        <div className="font-semibold">{s.title}</div>
+                        <div className="text-muted-foreground text-sm">{s.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
                 </div>
               </div>
             </section>
