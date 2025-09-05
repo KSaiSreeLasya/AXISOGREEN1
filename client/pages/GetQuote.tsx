@@ -26,7 +26,9 @@ export default function GetQuote() {
     // Placeholder: you can replace with API call
     console.log("Get Quote submitted:", { category, ...data });
     // Simple UI feedback
-    const submitBtn = form.querySelector("button[type=submit]") as HTMLButtonElement;
+    const submitBtn = form.querySelector(
+      "button[type=submit]",
+    ) as HTMLButtonElement;
     if (submitBtn) {
       submitBtn.textContent = "Submitted";
       submitBtn.disabled = true;
@@ -42,10 +44,12 @@ export default function GetQuote() {
       <Navigation />
       <main className="pt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="text-3xl font-bold mb-2 text-foreground">Get a Quote</h1>
+          <h1 className="text-3xl font-bold mb-2 text-foreground">
+            Get a Quote
+          </h1>
           <p className="text-muted-foreground mb-6">
-            Choose your category and fill the form to receive a free consultation
-            and quote.
+            Choose your category and fill the form to receive a free
+            consultation and quote.
           </p>
 
           <div className="flex flex-col md:flex-row gap-6">
@@ -87,17 +91,26 @@ export default function GetQuote() {
                 <p className="font-medium mb-2">Quick Links</p>
                 <ul className="space-y-1">
                   <li>
-                    <Link to="/solutions#solar" className="text-primary hover:underline">
+                    <Link
+                      to="/solutions#solar"
+                      className="text-primary hover:underline"
+                    >
                       Solar Energy Solutions
                     </Link>
                   </li>
                   <li>
-                    <Link to="/solutions#wind" className="text-primary hover:underline">
+                    <Link
+                      to="/solutions#wind"
+                      className="text-primary hover:underline"
+                    >
                       Wind Energy Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="text-primary hover:underline">
+                    <Link
+                      to="/contact"
+                      className="text-primary hover:underline"
+                    >
                       Contact our team
                     </Link>
                   </li>
@@ -106,29 +119,55 @@ export default function GetQuote() {
             </aside>
 
             <section className="w-full md:w-2/3 bg-white/80 p-6 rounded-xl shadow">
-              <h2 className="text-xl font-semibold mb-4 capitalize">{category} Quote Form</h2>
+              <h2 className="text-xl font-semibold mb-4 capitalize">
+                {category} Quote Form
+              </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input type="hidden" name="category" value={category} />
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Enter Your Name *</label>
-                  <input required name="name" className="w-full border border-border rounded-md px-3 py-2" />
+                  <label className="block text-sm font-medium mb-1">
+                    Enter Your Name *
+                  </label>
+                  <input
+                    required
+                    name="name"
+                    className="w-full border border-border rounded-md px-3 py-2"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Whatsapp Number *</label>
-                  <input required name="whatsapp" className="w-full border border-border rounded-md px-3 py-2" />
+                  <label className="block text-sm font-medium mb-1">
+                    Whatsapp Number *
+                  </label>
+                  <input
+                    required
+                    name="whatsapp"
+                    className="w-full border border-border rounded-md px-3 py-2"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Pin Code *</label>
-                  <input required name="pincode" className="w-full border border-border rounded-md px-3 py-2" />
+                  <label className="block text-sm font-medium mb-1">
+                    Pin Code *
+                  </label>
+                  <input
+                    required
+                    name="pincode"
+                    className="w-full border border-border rounded-md px-3 py-2"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">What is your average monthly bill? *</label>
-                  <select required name="bill" className="w-full border border-border rounded-md px-3 py-2">
+                  <label className="block text-sm font-medium mb-1">
+                    What is your average monthly bill? *
+                  </label>
+                  <select
+                    required
+                    name="bill"
+                    className="w-full border border-border rounded-md px-3 py-2"
+                  >
                     <option value="">Select</option>
                     <option value="<1000">Below ₹1,000</option>
                     <option value="1000-5000">₹1,000 - ₹5,000</option>
@@ -138,11 +177,21 @@ export default function GetQuote() {
 
                 <div className="flex items-center gap-2">
                   <input id="agree" type="checkbox" name="agree" required />
-                  <label htmlFor="agree" className="text-sm text-muted-foreground">I agree to terms of service & privacy policy</label>
+                  <label
+                    htmlFor="agree"
+                    className="text-sm text-muted-foreground"
+                  >
+                    I agree to terms of service & privacy policy
+                  </label>
                 </div>
 
                 <div>
-                  <button type="submit" className="px-6 py-3 bg-primary text-primary-foreground rounded-md">Submit Details</button>
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-primary text-primary-foreground rounded-md"
+                  >
+                    Submit Details
+                  </button>
                 </div>
               </form>
             </section>

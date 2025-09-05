@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function BackButton({ to = "/solutions", label = "Back" }: { to?: string; label?: string }) {
+export default function BackButton({
+  to = "/solutions",
+  label = "Back",
+}: {
+  to?: string;
+  label?: string;
+}) {
   return (
     <motion.div whileHover={{ x: -3 }} whileTap={{ scale: 0.98 }}>
       <Link

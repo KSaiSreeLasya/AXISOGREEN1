@@ -3,7 +3,13 @@ import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building, Car, Monitor, Settings, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -60,7 +66,9 @@ export default function B2B() {
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
@@ -68,16 +76,29 @@ export default function B2B() {
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg text-muted-foreground max-w-3xl mx-auto"
             >
-              Scalable commercial solar solutions to reduce energy costs, improve sustainability and support corporate ESG goals.
+              Scalable commercial solar solutions to reduce energy costs,
+              improve sustainability and support corporate ESG goals.
             </motion.p>
 
             <div className="mt-8 flex justify-center gap-4">
-              <Link to="/get-quote#commercial" className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground">Request Commercial Quote</Link>
-              <Link to="/contact" className="inline-block px-6 py-3 rounded-full bg-white border">Contact Sales</Link>
+              <Link
+                to="/get-quote#commercial"
+                className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground"
+              >
+                Request Commercial Quote
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-block px-6 py-3 rounded-full bg-white border"
+              >
+                Contact Sales
+              </Link>
             </div>
           </div>
         </section>
@@ -87,7 +108,16 @@ export default function B2B() {
             <h2 className="text-2xl font-semibold mb-6">Our B2B Services</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((s, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 40 }} animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.6, delay: idx * 0.08 }} whileHover={{ y: -6, scale: 1.02 }} className="group">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={
+                    isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+                  }
+                  transition={{ duration: 0.6, delay: idx * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
                   <Card className="h-full">
                     <CardHeader>
                       <div className="flex items-center gap-4">
@@ -98,7 +128,9 @@ export default function B2B() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-muted-foreground">{s.description}</CardDescription>
+                      <CardDescription className="text-muted-foreground">
+                        {s.description}
+                      </CardDescription>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -106,14 +138,23 @@ export default function B2B() {
             </div>
 
             <div className="mt-12 bg-gradient-to-r from-primary to-green-600 rounded-2xl p-8 text-white">
-              <h3 className="text-xl font-bold mb-3">Why choose our B2B services?</h3>
+              <h3 className="text-xl font-bold mb-3">
+                Why choose our B2B services?
+              </h3>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Proven track record on commercial and industrial projects.</li>
+                <li>
+                  Proven track record on commercial and industrial projects.
+                </li>
                 <li>Flexible financing and PPA options for enterprises.</li>
                 <li>Dedicated account management and SLA-backed operations.</li>
               </ul>
               <div className="mt-6">
-                <Link to="/get-quote#commercial" className="inline-block px-5 py-3 rounded-md bg-white text-primary font-semibold">Get a Commercial Quote</Link>
+                <Link
+                  to="/get-quote#commercial"
+                  className="inline-block px-5 py-3 rounded-md bg-white text-primary font-semibold"
+                >
+                  Get a Commercial Quote
+                </Link>
               </div>
             </div>
           </div>

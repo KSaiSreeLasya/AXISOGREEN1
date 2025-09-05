@@ -3,7 +3,13 @@ import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Globe, Building, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 import BackButton from "@/components/BackButton";
@@ -47,7 +53,9 @@ export default function B2G() {
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
@@ -55,16 +63,29 @@ export default function B2G() {
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg text-muted-foreground max-w-3xl mx-auto"
             >
-              Delivering large-scale and compliant solar projects for government bodies, public institutions, and community housing programs.
+              Delivering large-scale and compliant solar projects for government
+              bodies, public institutions, and community housing programs.
             </motion.p>
 
             <div className="mt-8 flex justify-center gap-4">
-              <Link to="/get-quote#commercial" className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground">Request Project Quote</Link>
-              <Link to="/contact" className="inline-block px-6 py-3 rounded-full bg-white border">Contact Public Sector</Link>
+              <Link
+                to="/get-quote#commercial"
+                className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground"
+              >
+                Request Project Quote
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-block px-6 py-3 rounded-full bg-white border"
+              >
+                Contact Public Sector
+              </Link>
             </div>
           </div>
         </section>
@@ -75,7 +96,16 @@ export default function B2G() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {services.map((s, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 40 }} animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.6, delay: idx * 0.08 }} whileHover={{ y: -6, scale: 1.02 }} className="group">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={
+                    isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+                  }
+                  transition={{ duration: 0.6, delay: idx * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
                   <Card key={idx} className="h-full">
                     <CardHeader>
                       <div className="flex items-center gap-4">
@@ -86,7 +116,9 @@ export default function B2G() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-muted-foreground">{s.description}</CardDescription>
+                      <CardDescription className="text-muted-foreground">
+                        {s.description}
+                      </CardDescription>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -94,14 +126,24 @@ export default function B2G() {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-3">Public sector capabilities</h3>
+              <h3 className="text-xl font-semibold mb-3">
+                Public sector capabilities
+              </h3>
               <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                 <li>End-to-end tender support and compliance documentation.</li>
                 <li>City-scale and institutional deployment experience.</li>
-                <li>Transparent reporting and performance dashboards for stakeholders.</li>
+                <li>
+                  Transparent reporting and performance dashboards for
+                  stakeholders.
+                </li>
               </ul>
               <div className="mt-6">
-                <Link to="/get-quote#commercial" className="inline-block px-5 py-3 rounded-md bg-primary text-white font-semibold">Request a Project Quote</Link>
+                <Link
+                  to="/get-quote#commercial"
+                  className="inline-block px-5 py-3 rounded-md bg-primary text-white font-semibold"
+                >
+                  Request a Project Quote
+                </Link>
               </div>
             </div>
           </div>

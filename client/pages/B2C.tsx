@@ -3,7 +3,13 @@ import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Wrench, Sun, Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -54,7 +60,9 @@ export default function B2C() {
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
@@ -62,27 +70,51 @@ export default function B2C() {
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg text-muted-foreground max-w-3xl mx-auto"
             >
-              Trusted rooftop solar systems and advisory services for homeowners and residential communities.
+              Trusted rooftop solar systems and advisory services for homeowners
+              and residential communities.
             </motion.p>
 
             <div className="mt-8 flex justify-center gap-4">
-              <Link to="/get-quote#residential" className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground">Request Residential Quote</Link>
-              <Link to="/get-quote#housing" className="inline-block px-6 py-3 rounded-full bg-white border">Housing Society Quote</Link>
+              <Link
+                to="/get-quote#residential"
+                className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground"
+              >
+                Request Residential Quote
+              </Link>
+              <Link
+                to="/get-quote#housing"
+                className="inline-block px-6 py-3 rounded-full bg-white border"
+              >
+                Housing Society Quote
+              </Link>
             </div>
           </div>
         </section>
 
         <section className="py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold mb-6">Residential Offerings</h2>
+            <h2 className="text-2xl font-semibold mb-6">
+              Residential Offerings
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               {services.map((s, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 40 }} animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.6, delay: idx * 0.08 }} whileHover={{ y: -6, scale: 1.02 }} className="group">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={
+                    isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+                  }
+                  transition={{ duration: 0.6, delay: idx * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
                   <Card className="h-full">
                     <CardHeader>
                       <div className="flex items-center gap-4">
@@ -93,7 +125,9 @@ export default function B2C() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-muted-foreground">{s.description}</CardDescription>
+                      <CardDescription className="text-muted-foreground">
+                        {s.description}
+                      </CardDescription>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -101,14 +135,23 @@ export default function B2C() {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-3">How we help homeowners</h3>
+              <h3 className="text-xl font-semibold mb-3">
+                How we help homeowners
+              </h3>
               <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                 <li>Free site assessment and customized system design.</li>
-                <li>Assistance with subsidies, net metering and documentation.</li>
+                <li>
+                  Assistance with subsidies, net metering and documentation.
+                </li>
                 <li>Flexible financing options and transparent pricing.</li>
               </ul>
               <div className="mt-6">
-                <Link to="/get-quote#residential" className="inline-block px-5 py-3 rounded-md bg-primary text-white font-semibold">Get a Residential Quote</Link>
+                <Link
+                  to="/get-quote#residential"
+                  className="inline-block px-5 py-3 rounded-md bg-primary text-white font-semibold"
+                >
+                  Get a Residential Quote
+                </Link>
               </div>
             </div>
           </div>

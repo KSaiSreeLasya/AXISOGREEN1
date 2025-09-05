@@ -3,8 +3,21 @@ import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Wind, Globe, Settings, ChartLine, Shield, Monitor } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  Wind,
+  Globe,
+  Settings,
+  ChartLine,
+  Shield,
+  Monitor,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import BackButton from "@/components/BackButton";
 
@@ -15,18 +28,54 @@ export default function Wind() {
   const isListInView = useInView(listRef, { once: true, margin: "-100px" });
 
   const highlights = [
-    { icon: Wind, title: "Wind EPC", desc: "Project development, turbine procurement and construction for onshore wind farms." },
-    { icon: Globe, title: "Hybrid Systems", desc: "Integrated solar-wind hybrid systems for improved capacity factors." },
-    { icon: Settings, title: "Asset Management", desc: "O&M, remote monitoring and performance optimization for wind assets." },
+    {
+      icon: Wind,
+      title: "Wind EPC",
+      desc: "Project development, turbine procurement and construction for onshore wind farms.",
+    },
+    {
+      icon: Globe,
+      title: "Hybrid Systems",
+      desc: "Integrated solar-wind hybrid systems for improved capacity factors.",
+    },
+    {
+      icon: Settings,
+      title: "Asset Management",
+      desc: "O&M, remote monitoring and performance optimization for wind assets.",
+    },
   ];
 
   const windServices = [
-    { icon: Wind, title: "Wind EPC Solutions", desc: "Complete wind project development and execution" },
-    { icon: Globe, title: "Hybrid Solar-Wind Systems", desc: "Integrated renewable energy systems" },
-    { icon: Settings, title: "Asset Management & O&M", desc: "Operations and maintenance services" },
-    { icon: ChartLine, title: "Design & Engineering Services", desc: "Technical design and engineering consulting" },
-    { icon: Shield, title: "Lender's Independent Engineer (LIE)", desc: "Independent technical advisory for lenders" },
-    { icon: Monitor, title: "Technical Due Diligence for M&A", desc: "Due diligence for acquisitions and investments" },
+    {
+      icon: Wind,
+      title: "Wind EPC Solutions",
+      desc: "Complete wind project development and execution",
+    },
+    {
+      icon: Globe,
+      title: "Hybrid Solar-Wind Systems",
+      desc: "Integrated renewable energy systems",
+    },
+    {
+      icon: Settings,
+      title: "Asset Management & O&M",
+      desc: "Operations and maintenance services",
+    },
+    {
+      icon: ChartLine,
+      title: "Design & Engineering Services",
+      desc: "Technical design and engineering consulting",
+    },
+    {
+      icon: Shield,
+      title: "Lender's Independent Engineer (LIE)",
+      desc: "Independent technical advisory for lenders",
+    },
+    {
+      icon: Monitor,
+      title: "Technical Due Diligence for M&A",
+      desc: "Due diligence for acquisitions and investments",
+    },
   ];
 
   return (
@@ -41,7 +90,9 @@ export default function Wind() {
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
@@ -50,15 +101,23 @@ export default function Wind() {
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={
+                isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg text-muted-foreground max-w-3xl mx-auto"
             >
-              Comprehensive wind energy services including EPC, hybrid integrations and asset management.
+              Comprehensive wind energy services including EPC, hybrid
+              integrations and asset management.
             </motion.p>
 
             <div className="mt-8 flex justify-center gap-4">
-              <Link to="/services" className="inline-block px-5 py-3 rounded-full bg-primary text-primary-foreground">Our Services</Link>
+              <Link
+                to="/services"
+                className="inline-block px-5 py-3 rounded-full bg-primary text-primary-foreground"
+              >
+                Our Services
+              </Link>
             </div>
           </div>
         </section>
@@ -69,7 +128,11 @@ export default function Wind() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
-                animate={isHeroInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
+                animate={
+                  isHeroInView
+                    ? { opacity: 1, scale: 1 }
+                    : { opacity: 0, scale: 0.98 }
+                }
                 transition={{ duration: 0.6 }}
                 className="flex items-center justify-center"
               >
@@ -82,7 +145,9 @@ export default function Wind() {
 
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
-                animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                animate={
+                  isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
+                }
                 transition={{ duration: 0.6 }}
               >
                 <h3 className="text-2xl font-semibold mb-4">Wind Services</h3>
@@ -103,7 +168,9 @@ export default function Wind() {
                         </div>
                         <div>
                           <div className="font-semibold">{s.title}</div>
-                          <div className="text-muted-foreground text-sm">{s.desc}</div>
+                          <div className="text-muted-foreground text-sm">
+                            {s.desc}
+                          </div>
                         </div>
                       </div>
                     </motion.div>
@@ -122,7 +189,9 @@ export default function Wind() {
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  animate={
+                    isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                  }
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
                   whileHover={{ scale: 1.03 }}
                   className="group"
@@ -137,7 +206,9 @@ export default function Wind() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-muted-foreground">{h.desc}</CardDescription>
+                      <CardDescription className="text-muted-foreground">
+                        {h.desc}
+                      </CardDescription>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -147,13 +218,18 @@ export default function Wind() {
             <div className="mt-12 bg-gradient-to-r from-primary to-green-600 rounded-2xl p-8 text-white">
               <motion.h3
                 initial={{ opacity: 0, x: -20 }}
-                animate={isListInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                animate={
+                  isListInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                }
                 transition={{ duration: 0.6 }}
                 className="text-xl font-bold mb-3"
               >
                 Partner with us on wind projects
               </motion.h3>
-              <p className="opacity-90">We support project development, EPC execution and operations for utility-scale and distributed wind deployments.</p>
+              <p className="opacity-90">
+                We support project development, EPC execution and operations for
+                utility-scale and distributed wind deployments.
+              </p>
             </div>
           </div>
         </section>
