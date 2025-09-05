@@ -54,16 +54,14 @@ export default function Navigation() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <motion.div
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.3 }}
-                className="w-10 h-10 bg-gradient-to-r from-solar-500 to-energy-500 rounded-xl flex items-center justify-center shadow-lg"
-              >
-                <Sun className="w-6 h-6 text-white" />
-              </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-solar-600 to-energy-600 bg-clip-text text-transparent">
-                Axiso Green Energies
-              </span>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F661e86d7a74f464c89095a37afa49cbd?format=webp&width=800"
+                alt="AXISO Green Energy logo"
+                className="h-10 w-auto object-contain"
+                loading="eager"
+                decoding="async"
+              />
+              <span className="sr-only">AXISO Green Energy</span>
             </Link>
 
             {/* Desktop Navigation */}
