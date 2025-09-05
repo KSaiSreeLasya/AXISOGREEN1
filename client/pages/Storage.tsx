@@ -47,8 +47,16 @@ export default function Storage() {
             <h2 className="text-2xl font-semibold mb-6">Storage Highlights</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {highlights.map((h, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 30 }} animate={isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: 0.6, delay: idx * 0.08 }} whileHover={{ scale: 1.03 }} className="group">
-                  <Card className="h-full">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: idx * 0.08 }}
+                  whileHover={{ scale: 1.03 }}
+                  className="group"
+                >
+                  <Card className="h-full bg-white">
                     <CardHeader>
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
