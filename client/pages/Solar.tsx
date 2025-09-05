@@ -4,7 +4,7 @@ import FloatingActionButton from "@/components/FloatingActionButton";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Sun, Building, Home, Globe } from "lucide-react";
+import { Sun, Building, Home, Globe, Zap, Battery, Car, Droplets, Wrench, Monitor } from "lucide-react";
 import { Link } from "react-router-dom";
 import BackButton from "@/components/BackButton";
 
