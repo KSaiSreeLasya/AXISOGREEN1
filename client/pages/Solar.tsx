@@ -108,6 +108,40 @@ export default function Solar() {
                 </div>
               </motion.div>
             </div>
+
+            {/* Solar Services Detailed Grid */}
+            <section className="py-12">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl font-semibold mb-6">Solar Services</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    { icon: Home, title: "Residential Solar Installation", desc: "Complete rooftop solar solutions for homes" },
+                    { icon: Building, title: "Commercial & Industrial Solar", desc: "Large-scale solar EPC for businesses" },
+                    { icon: Zap, title: "On-Grid & Hybrid Solar Systems", desc: "Grid-tied and hybrid solar configurations" },
+                    { icon: Battery, title: "Battery Storage Solutions", desc: "Energy storage systems for continuous power" },
+                    { icon: Car, title: "Solar Carports", desc: "Covered parking with integrated solar panels" },
+                    { icon: Droplets, title: "Solar Water Heating Systems", desc: "Efficient solar thermal solutions" },
+                    { icon: Car, title: "Solar EV Charging Stations", desc: "Clean energy charging infrastructure" },
+                    { icon: Wrench, title: "Solar Panel Maintenance & Repair", desc: "Comprehensive O&M services" },
+                    { icon: Monitor, title: "Solar Energy Audits & Monitoring", desc: "Performance analysis and optimization" },
+                  ].map((s, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.6, delay: i * 0.05 }} whileHover={{ scale: 1.02 }} className="group">
+                      <div className="p-6 rounded-lg bg-white shadow h-full">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center">
+                            <s.icon className="h-6 w-6 text-primary" />
+                          </div>
+                          <div>
+                            <div className="font-semibold">{s.title}</div>
+                            <div className="text-muted-foreground text-sm">{s.desc}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
           </div>
         </section>
       </main>
