@@ -9,11 +9,11 @@ type Category = "residential" | "housing" | "commercial";
 export default function GetQuote() {
   const location = useLocation();
   const hash = location.hash.replace("#", "");
-  const [category, setCategory] = useState<Category>(
+  const [category, setCategory] = React.useState<Category>(
     (hash as Category) || "residential",
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     const h = location.hash.replace("#", "") as Category;
     if (h && ["residential", "housing", "commercial"].includes(h)) {
       setCategory(h);
