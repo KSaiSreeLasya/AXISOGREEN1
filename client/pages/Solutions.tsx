@@ -97,24 +97,6 @@ export default function Solutions() {
   );
 
   const solarServices = [
-    // Business categories
-    {
-      icon: Building,
-      title: "B2B — Commercial & Industrial Solar",
-      description: "End-to-end commercial solar solutions for businesses, campuses, and industrial sites.",
-    },
-    {
-      icon: Home,
-      title: "B2C — Residential Solar Solutions",
-      description: "Rooftop and small-scale solar systems designed for homeowners and residential complexes.",
-    },
-    {
-      icon: Globe,
-      title: "B2G — Government & Public Projects",
-      description: "Large-scale public-sector and government solar projects, tenders, and rooftop schemes.",
-    },
-
-    // Existing services
     {
       icon: Home,
       title: "Residential Solar Installation",
