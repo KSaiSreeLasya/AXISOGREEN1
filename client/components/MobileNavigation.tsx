@@ -263,11 +263,8 @@ export default function MobileNavigation() {
                   transition={{ delay: 0.6 }}
                   className="space-y-3 pt-6 border-t border-solar-200"
                 >
-                  <Button
-                    className="w-full bg-gradient-to-r from-solar-500 to-energy-500 hover:from-solar-600 hover:to-energy-600 text-white"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Get Quote
+                  <Button asChild className="w-full bg-gradient-to-r from-solar-500 to-energy-500 hover:from-solar-600 hover:to-energy-600 text-white">
+                    <Link to="/get-quote" onClick={() => setIsOpen(false)}>Get Quote</Link>
                   </Button>
                   <Button
                     variant="outline"
