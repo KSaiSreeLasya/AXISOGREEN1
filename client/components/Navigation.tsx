@@ -146,12 +146,8 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-solar-300 text-solar-700 hover:bg-solar-50 hover:border-solar-400"
-                >
-                  Get Quote
+                <Button asChild variant="outline" size="sm" className="border-solar-300 text-solar-700 hover:bg-solar-50 hover:border-solar-400">
+                  <Link to="/get-quote">Get Quote</Link>
                 </Button>
               </motion.div>
               <motion.div
