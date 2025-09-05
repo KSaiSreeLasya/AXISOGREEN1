@@ -1,26 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import * as React from "react";
+import * as Router from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sun, ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import MobileNavigation from "@/components/MobileNavigation";
 
 export default function Navigation() {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(
+    null,
+  );
+  const location = Router.useLocation();
 
   const navItems = [
     { name: "Home", path: "/" },
-    {
-      name: "Solutions",
-      path: "/solutions",
-      dropdown: [
-        { name: "Solar Energy", path: "/solutions#solar" },
-        { name: "Wind Energy", path: "/solutions#wind" },
-        { name: "Energy Storage", path: "/solutions#storage" },
-      ],
-    },
+    { name: "Solutions", path: "/solutions" },
     {
       name: "Services",
       path: "#",
@@ -53,18 +47,16 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
-              <motion.div
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.3 }}
-                className="w-10 h-10 bg-gradient-to-r from-solar-500 to-energy-500 rounded-xl flex items-center justify-center shadow-lg"
-              >
-                <Sun className="w-6 h-6 text-white" />
-              </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-solar-600 to-energy-600 bg-clip-text text-transparent">
-                Axiso Green Energies
-              </span>
-            </Link>
+            <Router.Link to="/" className="flex items-center space-x-3">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F661e86d7a74f464c89095a37afa49cbd?format=webp&width=800"
+                alt="AXISO Green Energy logo"
+                className="h-10 w-auto object-contain"
+                loading="eager"
+                decoding="async"
+              />
+              <span className="sr-only">AXISO Green Energy</span>
+            </Router.Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -95,7 +87,7 @@ export default function Navigation() {
                       </motion.div>
                     </button>
                   ) : (
-                    <Link
+                    <Router.Link
                       to={item.path}
                       className={cn(
                         "px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-solar-50 block",
@@ -105,7 +97,7 @@ export default function Navigation() {
                       )}
                     >
                       {item.name}
-                    </Link>
+                    </Router.Link>
                   )}
 
                   {/* Dropdown Menu */}
@@ -125,13 +117,13 @@ export default function Navigation() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.05 }}
                           >
-                            <Link
+                            <Router.Link
                               to={dropdownItem.path}
                               className="block px-4 py-2 text-sm text-foreground hover:text-solar-700 hover:bg-solar-50 transition-colors"
                               onClick={() => setActiveDropdown(null)}
                             >
                               {dropdownItem.name}
-                            </Link>
+                            </Router.Link>
                           </motion.div>
                         ))}
                       </motion.div>
@@ -148,11 +140,12 @@ export default function Navigation() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
+                  asChild
                   variant="outline"
                   size="sm"
                   className="border-solar-300 text-solar-700 hover:bg-solar-50 hover:border-solar-400"
                 >
-                  Get Quote
+                  <Router.Link to="/get-quote">Get Quote</Router.Link>
                 </Button>
               </motion.div>
               <motion.div

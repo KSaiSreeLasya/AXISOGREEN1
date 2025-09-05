@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import * as React from "react";
+import * as Router from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,18 +19,20 @@ import {
 } from "lucide-react";
 
 export default function MobileNavigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(
+    null,
+  );
+  const location = Router.useLocation();
 
   // Close mobile menu when route changes
-  useEffect(() => {
+  React.useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
   }, [location]);
 
   // Prevent body scroll when menu is open
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -48,16 +50,7 @@ export default function MobileNavigation() {
       href: "/",
       icon: Home,
     },
-    {
-      title: "Solutions",
-      href: "/solutions",
-      icon: Sun,
-      submenu: [
-        { title: "Solar Energy", href: "/solutions#solar" },
-        { title: "Wind Energy", href: "/solutions#wind" },
-        { title: "Energy Storage", href: "/solutions#storage" },
-      ],
-    },
+    { title: "Solutions", href: "/solutions", icon: Sun },
     {
       title: "Services",
       href: "#",
@@ -110,18 +103,16 @@ export default function MobileNavigation() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-solar-200">
         <div className="flex items-center justify-between px-4 h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <motion.div
-              whileHover={{ rotate: 180 }}
-              transition={{ duration: 0.3 }}
-              className="w-8 h-8 bg-gradient-to-r from-solar-500 to-energy-500 rounded-lg flex items-center justify-center"
-            >
-              <Sun className="w-5 h-5 text-white" />
-            </motion.div>
-            <span className="text-lg font-bold bg-gradient-to-r from-solar-600 to-energy-600 bg-clip-text text-transparent">
-              Axiso
-            </span>
-          </Link>
+          <Router.Link to="/" className="flex items-center space-x-2">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F661e86d7a74f464c89095a37afa49cbd?format=webp&width=800"
+              alt="AXISO Green Energy logo"
+              className="h-8 w-auto object-contain"
+              loading="eager"
+              decoding="async"
+            />
+            <span className="sr-only">AXISO Green Energy</span>
+          </Router.Link>
 
           {/* Hamburger Button */}
           <motion.button
@@ -191,11 +182,7 @@ export default function MobileNavigation() {
                         <div className="space-y-2">
                           <button
                             onClick={() => toggleDropdown(item.title)}
-                            className={`w-full flex items-center justify-between p-3 rounded-xl text-left font-medium transition-all duration-200 ${
-                              activeDropdown === item.title
-                                ? "bg-solar-100 text-solar-700"
-                                : "text-foreground hover:bg-solar-50"
-                            }`}
+                            className={`w-full flex items-center justify-between p-3 rounded-xl text-left font-medium transition-all duration-200 ${activeDropdown === item.title ? "bg-solar-100 text-solar-700" : "text-foreground hover:bg-solar-50"}`}
                           >
                             <div className="flex items-center gap-3">
                               <item.icon className="w-5 h-5" />
@@ -227,13 +214,13 @@ export default function MobileNavigation() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: subIndex * 0.05 }}
                                   >
-                                    <Link
+                                    <Router.Link
                                       to={subItem.href}
                                       className="block p-2 text-sm text-muted-foreground hover:text-solar-600 hover:bg-solar-50 rounded-lg transition-colors"
                                       onClick={() => setIsOpen(false)}
                                     >
                                       {subItem.title}
-                                    </Link>
+                                    </Router.Link>
                                   </motion.div>
                                 ))}
                               </motion.div>
@@ -241,18 +228,14 @@ export default function MobileNavigation() {
                           </AnimatePresence>
                         </div>
                       ) : (
-                        <Link
+                        <Router.Link
                           to={item.href}
                           onClick={() => setIsOpen(false)}
-                          className={`flex items-center gap-3 p-3 rounded-xl font-medium transition-all duration-200 ${
-                            isActiveRoute(item.href)
-                              ? "bg-gradient-to-r from-solar-100 to-energy-100 text-solar-700"
-                              : "text-foreground hover:bg-solar-50"
-                          }`}
+                          className={`flex items-center gap-3 p-3 rounded-xl font-medium transition-all duration-200 ${isActiveRoute(item.href) ? "bg-gradient-to-r from-solar-100 to-energy-100 text-solar-700" : "text-foreground hover:bg-solar-50"}`}
                         >
                           <item.icon className="w-5 h-5" />
                           <span>{item.title}</span>
-                        </Link>
+                        </Router.Link>
                       )}
                     </motion.div>
                   ))}
@@ -266,10 +249,15 @@ export default function MobileNavigation() {
                   className="space-y-3 pt-6 border-t border-solar-200"
                 >
                   <Button
+                    asChild
                     className="w-full bg-gradient-to-r from-solar-500 to-energy-500 hover:from-solar-600 hover:to-energy-600 text-white"
-                    onClick={() => setIsOpen(false)}
                   >
-                    Get Quote
+                    <Router.Link
+                      to="/get-quote"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Get Quote
+                    </Router.Link>
                   </Button>
                   <Button
                     variant="outline"
