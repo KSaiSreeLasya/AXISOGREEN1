@@ -17,6 +17,7 @@ import Sectors from "./pages/Sectors";
 import Resources from "./pages/Resources";
 import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
+import GetQuote from "./pages/GetQuote";
 
 const queryClient = new QueryClient();
 
