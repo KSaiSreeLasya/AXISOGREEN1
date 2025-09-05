@@ -276,23 +276,26 @@ export default function Solutions() {
                   description: "Large-scale public-sector and government solar projects, tenders, and rooftop schemes.",
                   to: "/solutions/b2g",
                 },
-              ].map((link, idx) => (
-                <Link
-                  key={idx}
-                  to={link.to}
-                  className="block p-6 rounded-xl bg-white border border-green-100 shadow hover:shadow-lg transition"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-green-500/10 rounded-xl flex items-center justify-center">
-                      <link.icon className="h-6 w-6 text-primary" />
+              ].map((link, idx) => {
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={idx}
+                    to={link.to}
+                    className="block p-6 rounded-xl bg-white border border-green-100 shadow hover:shadow-lg transition"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-green-500/10 rounded-xl flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold">{link.title}</h3>
+                        <p className="text-sm text-muted-foreground">{link.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">{link.title}</h3>
-                      <p className="text-sm text-muted-foreground">{link.description}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
