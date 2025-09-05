@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import * as React from "react";
+import * as Router from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,18 +19,18 @@ import {
 } from "lucide-react";
 
 export default function MobileNavigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
+  const location = Router.useLocation();
 
   // Close mobile menu when route changes
-  useEffect(() => {
+  React.useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
   }, [location]);
 
   // Prevent body scroll when menu is open
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -111,7 +110,7 @@ export default function MobileNavigation() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-solar-200">
         <div className="flex items-center justify-between px-4 h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Router.Link to="/" className="flex items-center space-x-2">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F661e86d7a74f464c89095a37afa49cbd?format=webp&width=800"
               alt="AXISO Green Energy logo"
@@ -120,33 +119,17 @@ export default function MobileNavigation() {
               decoding="async"
             />
             <span className="sr-only">AXISO Green Energy</span>
-          </Link>
+          </Router.Link>
 
           {/* Hamburger Button */}
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative w-10 h-10 bg-solar-100 rounded-full flex items-center justify-center text-solar-700 hover:bg-solar-200 transition-colors"
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.button onClick={() => setIsOpen(!isOpen)} className="relative w-10 h-10 bg-solar-100 rounded-full flex items-center justify-center text-solar-700 hover:bg-solar-200 transition-colors" whileTap={{ scale: 0.95 }}>
             <AnimatePresence mode="wait">
               {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
                   <X className="w-6 h-6" />
                 </motion.div>
               ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
                   <Menu className="w-6 h-6" />
                 </motion.div>
               )}
@@ -160,79 +143,35 @@ export default function MobileNavigation() {
         {isOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black/50 z-40"
-              onClick={() => setIsOpen(false)}
-            />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="lg:hidden fixed inset-0 bg-black/50 z-40" onClick={() => setIsOpen(false)} />
 
             {/* Menu Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="lg:hidden fixed top-16 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-md z-50 overflow-y-auto"
-            >
+            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "spring", damping: 25, stiffness: 200 }} className="lg:hidden fixed top-16 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-md z-50 overflow-y-auto">
               <div className="p-6">
                 {/* Navigation Items */}
                 <div className="space-y-2 mb-8">
                   {navigationItems.map((item, index) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
+                    <motion.div key={item.title} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
                       {item.submenu ? (
                         <div className="space-y-2">
-                          <button
-                            onClick={() => toggleDropdown(item.title)}
-                            className={`w-full flex items-center justify-between p-3 rounded-xl text-left font-medium transition-all duration-200 ${
-                              activeDropdown === item.title
-                                ? "bg-solar-100 text-solar-700"
-                                : "text-foreground hover:bg-solar-50"
-                            }`}
-                          >
+                          <button onClick={() => toggleDropdown(item.title)} className={`w-full flex items-center justify-between p-3 rounded-xl text-left font-medium transition-all duration-200 ${activeDropdown === item.title ? "bg-solar-100 text-solar-700" : "text-foreground hover:bg-solar-50"}`}>
                             <div className="flex items-center gap-3">
                               <item.icon className="w-5 h-5" />
                               <span>{item.title}</span>
                             </div>
-                            <motion.div
-                              animate={{
-                                rotate: activeDropdown === item.title ? 180 : 0,
-                              }}
-                              transition={{ duration: 0.2 }}
-                            >
+                            <motion.div animate={{ rotate: activeDropdown === item.title ? 180 : 0 }} transition={{ duration: 0.2 }}>
                               <ChevronDown className="w-4 h-4" />
                             </motion.div>
                           </button>
 
                           <AnimatePresence>
                             {activeDropdown === item.title && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden ml-8 space-y-1"
-                              >
+                              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden ml-8 space-y-1">
                                 {item.submenu.map((subItem, subIndex) => (
-                                  <motion.div
-                                    key={subItem.title}
-                                    initial={{ opacity: 0, x: 10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: subIndex * 0.05 }}
-                                  >
-                                    <Link
-                                      to={subItem.href}
-                                      className="block p-2 text-sm text-muted-foreground hover:text-solar-600 hover:bg-solar-50 rounded-lg transition-colors"
-                                      onClick={() => setIsOpen(false)}
-                                    >
+                                  <motion.div key={subItem.title} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: subIndex * 0.05 }}>
+                                    <Router.Link to={subItem.href} className="block p-2 text-sm text-muted-foreground hover:text-solar-600 hover:bg-solar-50 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
                                       {subItem.title}
-                                    </Link>
+                                    </Router.Link>
                                   </motion.div>
                                 ))}
                               </motion.div>
@@ -240,55 +179,29 @@ export default function MobileNavigation() {
                           </AnimatePresence>
                         </div>
                       ) : (
-                        <Link
-                          to={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`flex items-center gap-3 p-3 rounded-xl font-medium transition-all duration-200 ${
-                            isActiveRoute(item.href)
-                              ? "bg-gradient-to-r from-solar-100 to-energy-100 text-solar-700"
-                              : "text-foreground hover:bg-solar-50"
-                          }`}
-                        >
+                        <Router.Link to={item.href} onClick={() => setIsOpen(false)} className={`flex items-center gap-3 p-3 rounded-xl font-medium transition-all duration-200 ${isActiveRoute(item.href) ? "bg-gradient-to-r from-solar-100 to-energy-100 text-solar-700" : "text-foreground hover:bg-solar-50"}`}>
                           <item.icon className="w-5 h-5" />
                           <span>{item.title}</span>
-                        </Link>
+                        </Router.Link>
                       )}
                     </motion.div>
                   ))}
                 </div>
 
                 {/* CTA Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="space-y-3 pt-6 border-t border-solar-200"
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="space-y-3 pt-6 border-t border-solar-200">
                   <Button asChild className="w-full bg-gradient-to-r from-solar-500 to-energy-500 hover:from-solar-600 hover:to-energy-600 text-white">
-                    <Link to="/get-quote" onClick={() => setIsOpen(false)}>Get Quote</Link>
+                    <Router.Link to="/get-quote" onClick={() => setIsOpen(false)}>Get Quote</Router.Link>
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full border-solar-300 text-solar-700 hover:bg-solar-50"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Button variant="outline" className="w-full border-solar-300 text-solar-700 hover:bg-solar-50" onClick={() => setIsOpen(false)}>
                     Schedule Call
                   </Button>
                 </motion.div>
 
                 {/* Contact Info */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="mt-8 p-4 bg-gradient-to-r from-solar-50 to-energy-50 rounded-xl"
-                >
-                  <h3 className="font-semibold text-foreground mb-2">
-                    Need Help?
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Contact our solar experts
-                  </p>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-8 p-4 bg-gradient-to-r from-solar-50 to-energy-50 rounded-xl">
+                  <h3 className="font-semibold text-foreground mb-2">Need Help?</h3>
+                  <p className="text-sm text-muted-foreground mb-3">Contact our solar experts</p>
                   <div className="flex items-center gap-2 text-sm text-solar-700">
                     <Phone className="w-4 h-4" />
                     <span>+1 (555) 123-4567</span>
