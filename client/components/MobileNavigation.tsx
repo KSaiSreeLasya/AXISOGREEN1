@@ -48,16 +48,7 @@ export default function MobileNavigation() {
       href: "/",
       icon: Home,
     },
-    {
-      title: "Solutions",
-      href: "/solutions",
-      icon: Sun,
-      submenu: [
-        { title: "Solar Energy", href: "/solutions#solar" },
-        { title: "Wind Energy", href: "/solutions#wind" },
-        { title: "Energy Storage", href: "/solutions#storage" },
-      ],
-    },
+    { title: "Solutions", href: "/solutions", icon: Sun },
     {
       title: "Services",
       href: "#",
