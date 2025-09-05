@@ -16,9 +16,10 @@ export default function Navigation() {
       name: "Solutions",
       path: "/solutions",
       dropdown: [
-        { name: "Solar Energy", path: "/solutions#solar" },
-        { name: "Wind Energy", path: "/solutions#wind" },
-        { name: "Energy Storage", path: "/solutions#storage" },
+        { name: "Solar Energy", path: "/solutions/solar" },
+        { name: "Wind Energy", path: "/solutions/wind" },
+        { name: "Energy Storage", path: "/solutions/storage" },
+        { name: "EV Stations", path: "/solutions/ev-stations" },
       ],
     },
     {
