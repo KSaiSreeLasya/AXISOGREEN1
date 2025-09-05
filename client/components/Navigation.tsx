@@ -12,16 +12,7 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    {
-      name: "Solutions",
-      path: "/solutions",
-      dropdown: [
-        { name: "Solar Energy", path: "/solutions/solar" },
-        { name: "Wind Energy", path: "/solutions/wind" },
-        { name: "Energy Storage", path: "/solutions/storage" },
-        { name: "EV Stations", path: "/solutions/ev-stations" },
-      ],
-    },
+    { name: "Solutions", path: "/solutions" },
     {
       name: "Services",
       path: "#",
