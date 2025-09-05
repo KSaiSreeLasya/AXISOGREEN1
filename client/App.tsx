@@ -18,6 +18,9 @@ import Resources from "./pages/Resources";
 import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 import GetQuote from "./pages/GetQuote";
+import B2B from "./pages/B2B";
+import B2C from "./pages/B2C";
+import B2G from "./pages/B2G";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +42,9 @@ const App = () => (
           <Route path="/resources" element={<Resources />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/get-quote" element={<GetQuote />} />
+          <Route path="/solutions/b2b" element={<B2B />} />
+          <Route path="/solutions/b2c" element={<B2C />} />
+          <Route path="/solutions/b2g" element={<B2G />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
