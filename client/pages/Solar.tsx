@@ -45,6 +45,37 @@ export default function Solar() {
           </div>
         </section>
 
+        {/* Audience + Image Section */}
+        <section className="py-12 bg-white/50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={isHeroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }} transition={{ duration: 0.6 }}>
+                <h3 className="text-2xl font-semibold mb-4">Who we serve</h3>
+                <p className="text-muted-foreground mb-6">Tailored solar solutions for homeowners, businesses and public sector projects. Select your category to learn more.</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <Link to="/solutions/b2c" className="p-4 rounded-lg bg-gradient-to-br from-white to-green-50 shadow hover:shadow-md transition">
+                    <div className="text-sm font-semibold">B2C</div>
+                    <div className="text-muted-foreground text-sm">Residential rooftop EPC & consulting</div>
+                  </Link>
+                  <Link to="/solutions/b2b" className="p-4 rounded-lg bg-gradient-to-br from-white to-green-50 shadow hover:shadow-md transition">
+                    <div className="text-sm font-semibold">B2B</div>
+                    <div className="text-muted-foreground text-sm">Commercial & industrial EPC, EV infra</div>
+                  </Link>
+                  <Link to="/solutions/b2g" className="p-4 rounded-lg bg-gradient-to-br from-white to-green-50 shadow hover:shadow-md transition">
+                    <div className="text-sm font-semibold">B2G</div>
+                    <div className="text-muted-foreground text-sm">Government & public rooftop programs</div>
+                  </Link>
+                </div>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={isHeroInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }} transition={{ duration: 0.6 }} className="flex items-center justify-center">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F7267956a86a942cab07f1709dec9e830?format=webp&width=800" alt="Solar overview" className="rounded-xl shadow-lg w-full object-cover" />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         <section ref={listRef} className="py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-semibold mb-6">Solar Highlights</h2>
