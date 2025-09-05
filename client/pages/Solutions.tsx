@@ -298,6 +298,21 @@ export default function Solutions() {
               })}
             </div>
 
+            {/* Technology links */}
+            <div className="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-4 gap-4">
+              {[
+                { title: "Solar Energy", to: "/solutions/solar" },
+                { title: "Wind Energy", to: "/solutions/wind" },
+                { title: "Energy Storage", to: "/solutions/storage" },
+                { title: "EV Stations", to: "/solutions/ev-stations" },
+              ].map((t, i) => (
+                <Link key={i} to={t.to} className="block p-6 rounded-xl bg-gradient-to-br from-white to-green-50 border border-green-100 shadow hover:shadow-lg transition">
+                  <h4 className="text-lg font-semibold mb-1">{t.title}</h4>
+                  <p className="text-sm text-muted-foreground">Explore our {t.title.toLowerCase()} solutions and services.</p>
+                </Link>
+              ))}
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               {solarServices.map((service, index) => (
                 <motion.div
