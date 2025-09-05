@@ -56,7 +56,7 @@ export default function B2B() {
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="w-full flex justify-start mb-6">
-              <BackButton />
+              <BackButton to="/solutions/solar" label="Back to Solar" />
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
